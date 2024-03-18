@@ -36,7 +36,7 @@ function Formulario(props) {
                 <button type="submit" className="btn btn-primary" >Registrarse</button>
             </form>
             <p>
-                {props.id} - {props.nombre} - {props.correo} - {props.edad} - {props.cargo} - {props.telefono}
+                {props.nombre} - {props.correo} - {props.edad} - {props.cargo} - {props.telefono}
             </p>
 
             {props.errorllenado ? <Alert errormsg={props.errorllenadomsg} status="alert alert-danger" /> : null}

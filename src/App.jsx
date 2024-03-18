@@ -21,9 +21,8 @@ function App() {
   const [noerror, setNoerror] = useState(false)
   const [noerrormsg, setNoerrormsg] = useState("")
   const [id, setId] = useState('')
-/*   const [filtroColaboradores, setFiltroColaboradores] = useState(BaseColaboradores); */
 
-  const validarLlenadoCampos = (e) => {
+/*   const validarLlenadoCampos = (e) => {
     e.preventDefault()
     if (nombre == '' || correo == '' || edad == '' || cargo == '' || telefono == '') {
       setErrorllenado(true)
@@ -34,8 +33,13 @@ function App() {
       setErrorllenado(false)
       setNoerrormsg("El colaborador fue agregado exitosamente!")
       setNoerror(true)
+      setNombre('')
+      setCorreo('')
+      setEdad('')
+      setCargo('')
+      setTelefono('')
     }
-  }
+  } */
 
   const eliminarColaborador = (idColaborador) => {
     setListaColaboradores(listaColaboradores.filter(colaborador => colaborador.id !== idColaborador));
@@ -44,10 +48,27 @@ function App() {
 
   const agregarColaborador = (e) => {
     e.preventDefault()
-    setId(Date.now)
-    validarLlenadoCampos(e)
-    setListaColaboradores([...listaColaboradores, { id: id, nombre: nombre, correo: correo, edad: edad, cargo: cargo, telefono: telefono }])
-    setListaFiltrada([...listaFiltrada, { id: id, nombre: nombre, correo: correo, edad: edad, cargo: cargo, telefono: telefono }])
+
+    if (nombre === '' || correo === '' || edad === '' || cargo === '' || telefono === '') {
+      setErrorllenado(true);
+      setErrorllenadomsg("Completa todos los campos!");
+      return;
+    }
+    setErrorllenado(false);
+    setNoerror(true);
+    setNoerrormsg("El colaborador fue agregado exitosamente!");
+
+    const nuevoId = Date.now();
+    const nuevoColaborador = { id: nuevoId, nombre, correo, edad, cargo, telefono };
+    setListaColaboradores([...listaColaboradores, nuevoColaborador]);
+    setListaFiltrada([...listaFiltrada, nuevoColaborador]);
+  
+    // Limpiar los campos del formulario
+    setNombre('');
+    setCorreo('');
+    setEdad('');
+    setCargo('');
+    setTelefono('');
   }
   return (
     <>
@@ -57,10 +78,10 @@ function App() {
             <h2 className="header-title">Listado de colaboradores</h2>
           </div>
         </div>
-        <Buscador BaseColaboradores={listaColaboradores} actualizarListaFiltrada={setListaFiltrada}/>
+        <Buscador BaseColaboradores={listaColaboradores} actualizarListaFiltrada={setListaFiltrada} />
         <div className="row">
           <div className='col-lg-8 table-responsive'>
-            <Listado BaseColaboradores={listaFiltrada} eliminarColaborador={eliminarColaborador}/>
+            <Listado BaseColaboradores={listaFiltrada} eliminarColaborador={eliminarColaborador} />
           </div>
           <div className='col-lg-4'>
             <Formulario
