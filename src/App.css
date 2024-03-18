@@ -18,11 +18,8 @@ body {
 .container {
   margin-top: 50px;
   background-color: #fff;
-  /* Asumiendo que quieres un fondo blanco */
   flex-grow: 1;
-  /* Esto hace que el contenedor crezca para ocupar el espacio disponible */
   min-height: 100vh;
-  /* or 100% if it's within a flex container that stretches */
 }
 
 .search-box {
@@ -31,14 +28,11 @@ body {
 
 @media (min-width: 992px) {
 
-  /* Ajustes para pantallas grandes */
   .search-box {
     width: 50%;
-    /* Tamaño aproximado a la mitad de la tabla */
   }
 
   .table-responsive {
     margin-top: -24px;
-    /* Acercar el input a la tabla */
   }
 }
