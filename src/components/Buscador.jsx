@@ -27,8 +27,7 @@ function Buscador({ BaseColaboradores, actualizarListaFiltrada }) {
 
   return (
     <>
-      <div className="row mb-4">
-        <div className="col-lg-8">
+
           <form action="">
             <input type="text"
               className="form-control search-box mb-3"
@@ -37,8 +36,7 @@ function Buscador({ BaseColaboradores, actualizarListaFiltrada }) {
               onChange={filtrarColaboradores}
             />
           </form>
-        </div>
-      </div>
+ 
     </>
   )
 }

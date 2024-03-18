@@ -11,6 +11,7 @@ function Listado(props) {
                         <th scope="col">Edad</th>
                         <th scope="col">Cargo</th>
                         <th scope="col">Telefono</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>

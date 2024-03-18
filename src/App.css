@@ -16,14 +16,18 @@ body {
 }
 
 .container {
-  margin-top: 50px;
+  margin-top: 20px;
   background-color: #fff;
-  flex-grow: 1;
-  min-height: 100vh;
+
 }
 
 .search-box {
   width: 100%;
+  margin-bottom: 0px !important;
+}
+
+.header-title{
+  padding-bottom: 50px;
 }
 
 @media (min-width: 992px) {

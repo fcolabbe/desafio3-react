@@ -53,15 +53,15 @@ function App() {
   }
   return (
     <>
-      <div className="container d-flex flex-column min-vh-100">
-        <div className="row mb-2">
-          <div className="col-12">
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12">
             <h2 className="header-title">Listado de colaboradores</h2>
           </div>
         </div>
-        <Buscador BaseColaboradores={listaColaboradores} actualizarListaFiltrada={setListaFiltrada} />
         <div className="row">
           <div className='col-lg-8 table-responsive'>
+            <Buscador BaseColaboradores={listaColaboradores} actualizarListaFiltrada={setListaFiltrada} />
             <Listado BaseColaboradores={listaFiltrada} eliminarColaborador={eliminarColaborador} />
           </div>
           <div className='col-lg-4'>
