@@ -22,25 +22,6 @@ function App() {
   const [noerrormsg, setNoerrormsg] = useState("")
   const [id, setId] = useState('')
 
-/*   const validarLlenadoCampos = (e) => {
-    e.preventDefault()
-    if (nombre == '' || correo == '' || edad == '' || cargo == '' || telefono == '') {
-      setErrorllenado(true)
-      setNoerror(false)
-      setErrorllenadomsg("Completa todos los campos!")
-      return
-    } else {
-      setErrorllenado(false)
-      setNoerrormsg("El colaborador fue agregado exitosamente!")
-      setNoerror(true)
-      setNombre('')
-      setCorreo('')
-      setEdad('')
-      setCargo('')
-      setTelefono('')
-    }
-  } */
-
   const eliminarColaborador = (idColaborador) => {
     setListaColaboradores(listaColaboradores.filter(colaborador => colaborador.id !== idColaborador));
     setListaFiltrada(listaFiltrada.filter(colaborador => colaborador.id !== idColaborador));
@@ -62,7 +43,7 @@ function App() {
     const nuevoColaborador = { id: nuevoId, nombre, correo, edad, cargo, telefono };
     setListaColaboradores([...listaColaboradores, nuevoColaborador]);
     setListaFiltrada([...listaFiltrada, nuevoColaborador]);
-  
+
     // Limpiar los campos del formulario
     setNombre('');
     setCorreo('');

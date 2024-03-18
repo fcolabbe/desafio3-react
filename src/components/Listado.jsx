@@ -22,7 +22,7 @@ function Listado(props) {
                             <td>{colaboradores.cargo}</td>
                             <td>{colaboradores.telefono}</td>
                             <td><button onClick={() => props.eliminarColaborador(colaboradores.id)}> Borrar
-</button></td>
+                            </button></td>
                         </tr>
                     ))}
                 </tbody>

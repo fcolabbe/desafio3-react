@@ -14,7 +14,7 @@ function Buscador({ BaseColaboradores, actualizarListaFiltrada }) {
       return;
     }
 
-    const listaFiltrada = BaseColaboradores.filter((colaborador) => 
+    const listaFiltrada = BaseColaboradores.filter((colaborador) =>
       colaborador.nombre.toLowerCase().includes(terminoBusqueda) ||
       colaborador.correo.toLowerCase().includes(terminoBusqueda) ||
       colaborador.edad.toString().toLowerCase().includes(terminoBusqueda) ||
