@@ -2,24 +2,28 @@ import React from 'react'
 import { useState } from 'react';
 
 
-function Buscador(props) {
+function Buscador({ BaseColaboradores, actualizarListaFiltrada }) {
   const [busqueda, setBusqueda] = useState('');
-  const manejarBusqueda = (e) => {
-    const textoBusqueda = e.target.value.toLowerCase();
-    setBusqueda(textoBusqueda);
 
-    const filtrados = props.BaseColaboradores.filter(colaborador => {
-        return (
-            colaborador.nombre.toLowerCase().includes(textoBusqueda) ||
-            colaborador.correo.toLowerCase().includes(textoBusqueda) ||
-            colaborador.edad.toString().includes(textoBusqueda) ||
-            colaborador.cargo.toLowerCase().includes(textoBusqueda) ||
-            colaborador.telefono.includes(textoBusqueda)
-        );
-    });
+  const filtrarColaboradores = (evento) => {
+    const terminoBusqueda = evento.target.value.toLowerCase();
+    setBusqueda(terminoBusqueda);
 
-    props.setListaColaboradores(filtrados);
-};
+    if (!terminoBusqueda) {
+      actualizarListaFiltrada(BaseColaboradores);
+      return;
+    }
+
+    const listaFiltrada = BaseColaboradores.filter((colaborador) => 
+      colaborador.nombre.toLowerCase().includes(terminoBusqueda) ||
+      colaborador.correo.toLowerCase().includes(terminoBusqueda) ||
+      colaborador.edad.toString().toLowerCase().includes(terminoBusqueda) ||
+      colaborador.cargo.toLowerCase().includes(terminoBusqueda) ||
+      colaborador.telefono.toLowerCase().includes(terminoBusqueda)
+    );
+
+    actualizarListaFiltrada(listaFiltrada);
+  };
 
   return (
     <>
@@ -30,7 +34,7 @@ function Buscador(props) {
               className="form-control search-box mb-3"
               placeholder="Buscar colaboradores..."
               value={busqueda}
-              onChange={manejarBusqueda}
+              onChange={filtrarColaboradores}
             />
           </form>
         </div>

@@ -12,6 +12,7 @@ function App() {
   const [errorllenado, setErrorllenado] = useState(false)
   const [errorllenadomsg, setErrorllenadomsg] = useState(false)
   const [listaColaboradores, setListaColaboradores] = useState(BaseColaboradores)
+  const [listaFiltrada, setListaFiltrada] = useState(BaseColaboradores);
   const [nombre, setNombre] = useState('')
   const [correo, setCorreo] = useState('')
   const [edad, setEdad] = useState('')
@@ -38,6 +39,7 @@ function App() {
 
   const eliminarColaborador = (idColaborador) => {
     setListaColaboradores(listaColaboradores.filter(colaborador => colaborador.id !== idColaborador));
+    setListaFiltrada(listaFiltrada.filter(colaborador => colaborador.id !== idColaborador));
   }
 
   const agregarColaborador = (e) => {
@@ -45,6 +47,7 @@ function App() {
     setId(Date.now)
     validarLlenadoCampos(e)
     setListaColaboradores([...listaColaboradores, { id: id, nombre: nombre, correo: correo, edad: edad, cargo: cargo, telefono: telefono }])
+    setListaFiltrada([...listaFiltrada, { id: id, nombre: nombre, correo: correo, edad: edad, cargo: cargo, telefono: telefono }])
   }
   return (
     <>
@@ -54,10 +57,10 @@ function App() {
             <h2 className="header-title">Listado de colaboradores</h2>
           </div>
         </div>
-        <Buscador BaseColaboradores={listaColaboradores} setListaColaboradores={setListaColaboradores}/>
+        <Buscador BaseColaboradores={listaColaboradores} actualizarListaFiltrada={setListaFiltrada}/>
         <div className="row">
           <div className='col-lg-8 table-responsive'>
-            <Listado BaseColaboradores={listaColaboradores} eliminarColaborador={eliminarColaborador}/>
+            <Listado BaseColaboradores={listaFiltrada} eliminarColaborador={eliminarColaborador}/>
           </div>
           <div className='col-lg-4'>
             <Formulario
