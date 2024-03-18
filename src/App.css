@@ -1,0 +1,34 @@
+html, body {
+  height: 100%;
+  width: 100%;
+} 
+
+#root {
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  height: 100%;
+}
+
+.form-control {
+  margin-bottom: 20px;
+}
+
+.container {
+  margin-top: 50px;
+  background-color: #fff; /* Asumiendo que quieres un fondo blanco */
+  flex-grow: 1; /* Esto hace que el contenedor crezca para ocupar el espacio disponible */
+  min-height: 100vh; /* or 100% if it's within a flex container that stretches */
+}
+.search-box {
+  width: 100%;
+}
+@media (min-width: 992px) { /* Ajustes para pantallas grandes */
+  .search-box {
+    width: 50%; /* Tamaño aproximado a la mitad de la tabla */
+  }
+  .table-responsive {
+    margin-top: -24px; /* Acercar el input a la tabla */
+  }
+}
+

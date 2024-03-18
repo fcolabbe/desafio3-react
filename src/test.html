@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Colaboradores</title>
+<!-- Bootstrap CSS CDN -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+  .container {
+    margin-top: 50px;
+  }
+  .search-box {
+    width: 100%;
+  }
+  @media (min-width: 992px) { /* Ajustes para pantallas grandes */
+    .search-box {
+      width: 50%; /* Tamaño aproximado a la mitad de la tabla */
+    }
+    .table-responsive {
+      margin-top: -24px; /* Acercar el input a la tabla */
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="row mb-2">
+    <div class="col-12">
+      <h2 class="header-title">Listado de colaboradores</h2>
+    </div>
+  </div>
+  <div class="row mb-4">
+    <div class="col-lg-8">
+      <input type="text" class="form-control search-box mb-3" placeholder="Busca un colaborador">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8">
+      <!-- Tabla de colaboradores -->
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>Edad</th>
+              <th>Cargo</th>
+              <th>Teléfono</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Juan Soto</td>
+              <td>juans@colaborador.com</td>
+              <td>23</td>
+              <td>Desarrollador FrontEnd</td>
+              <td>99887766</td>
+            </tr>
+            <tr>
+              <td>Lucas Pailamilla</td>
+              <td>lucasp@colaborador.com</td>
+              <td>31</td>
+              <td>Desarrollador Backend</td>
+              <td>88779955</td>
+            </tr>
+            <tr>
+              <td>Diego Riquelme</td>
+              <td>diegor@colaborador.com</td>
+              <td>28</td>
+              <td>Ingeniero DevOps</td>
+              <td>99226644</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+    <div class="col-lg-4">
+      <!-- Formulario para agregar colaborador -->
+      <h4>Agregar colaborador</h4>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Nombre del colaborador">
+      </div>
+      <div class="form-group">
+        <input type="email" class="form-control" placeholder="Email del colaborador">
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control" placeholder="Edad del colaborador">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Cargo del colaborador">
+      </div>
+      <div class="form-group">
+        <input type="tel" class="form-control" placeholder="Teléfono del colaborador">
+      </div>
+      <button type="button" class="btn btn-primary">Agregar colaborador</button>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js CDN -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
